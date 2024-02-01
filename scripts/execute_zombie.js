@@ -1,7 +1,7 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-    const deployedContractAddress = "0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82";
+    const deployedContractAddress = "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9";
 
     // コントラクトのインターフェースを取得
     const ZombieFactory = await ethers.getContractFactory("ZombieFactory");
@@ -10,20 +10,20 @@ async function main() {
     const zombieFactory = await ZombieFactory.attach(deployedContractAddress);
     
     // イベント取得
-    zombieFactory.on("NewZombie", (zombieId, name, dna) => {
-        console.log(`New Zombie created: Id=${zombieId}, Name=${name}, DNA=${dna}`);
-    });
+    // zombieFactory.on("NewZombie", (zombieId, name, dna) => {
+    //     console.log(`New Zombie created: Id=${zombieId}, Name=${name}, DNA=${dna}`);
+    // });
 
     // await zombieFactory.createRandomZombie("aiueo");
-    // await zombieFactory.createRandomZombie("ABCDEFG");
+    await zombieFactory.createRandomZombie("ABCDEFG");
     
-    const zombiesCount = 1;
+    // const zombiesCount = 1;
 
-    // すべてのZombieを出力
-    for (let i = 0; i < zombiesCount; i++) {
-        const zombie = await zombieFactory.zombies(i);
-        console.log(`Zombie ${i}:`, zombie);
-    }
+    // // すべてのZombieを出力
+    // for (let i = 0; i < zombiesCount; i++) {
+    //     const zombie = await zombieFactory.zombies(i);
+    //     console.log(`Zombie ${i}:`, zombie);
+    // }
 }
 
 main()
