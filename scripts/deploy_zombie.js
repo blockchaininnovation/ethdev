@@ -8,12 +8,12 @@ const hre = require("hardhat");
 
 async function main() {
 
-  const zombie = await hre.ethers.deployContract("ZombieFactory", [], {});
+  const zombie = await hre.ethers.deployContract("ZombieFeeding", [], {});
 
   await zombie.waitForDeployment();
 
   console.log(
-    `ZombieFactory deployed to ${zombie.target}`
+    `ZombieFeeding deployed to ${zombie.target}`
   );
 }
 

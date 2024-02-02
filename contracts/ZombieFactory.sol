@@ -42,7 +42,7 @@ contract ZombieFactory {
     // function createRandomZombie(string _name) public {
     function createRandomZombie(string calldata _name) public {
         // require(ownerZombieCount[msg.sender] == 0);
-        
+
         // _name = "aeae";
 
         uint randDna = _generateRandomDna(_name);
